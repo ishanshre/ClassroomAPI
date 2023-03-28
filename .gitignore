@@ -5,6 +5,15 @@ __pycache__/
 
 # C extensions
 *.so
+.env
+venv/
+media/
+*/media/
+*/*/media/
+__pycache__
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
 
 # Distribution / packaging
 .Python
