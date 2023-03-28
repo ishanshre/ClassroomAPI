@@ -3,11 +3,20 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 
 from phonenumber_field.modelfields import PhoneNumberField
+
+from rest_framework_simplejwt.tokens import RefreshToken
 # Create your models here.
 
 class User(AbstractUser):
     email = models.EmailField(_("Email Address"),max_length=255, unique=True)
 
+    def get_tokens(self):
+        refresh = RefreshToken.for_user(self)
+        tokens = {
+            "access": str(refresh.access_token),
+            "refresh": str(refresh),
+        }
+        return tokens
 
 
 class Profile(models.Model):
