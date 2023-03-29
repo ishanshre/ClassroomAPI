@@ -14,6 +14,7 @@ pillow = "*"
 django-phonenumbers = "*"
 django-phonenumber-field = "*"
 babel = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 

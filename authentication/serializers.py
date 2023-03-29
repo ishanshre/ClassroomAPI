@@ -14,6 +14,12 @@ from rest_framework_simplejwt.exceptions import TokenError
 User = get_user_model()
 
 
+class UserInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','username','email']
+
+
 class UserRegisterSerializer(serializers.ModelSerializer):
     username = serializers.CharField(max_length=255)
     email = serializers.EmailField(max_length=255)

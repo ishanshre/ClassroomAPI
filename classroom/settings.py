@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     # local
     'authentication.apps.AuthenticationConfig',
+    'course.apps.CourseConfig',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "authentication.User"
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
